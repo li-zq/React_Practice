@@ -1,5 +1,8 @@
+import './theme.less';
+import FistOne from "./component/m1/m1.jsx"
 
-$.ajax({
+console.log(FistOne)
+/*$.ajax({
 	url: '/api',
 	type: 'GET',
 	dataType: 'json',
@@ -13,4 +16,6 @@ $.ajax({
 })
 .always(function() {
 	console.log("complete");
-});
+});*/
+var a = 32;
+

@@ -14,10 +14,10 @@ module.exports = {
 				test: /\.less$/,
 				use: [
 					{
-						loader: 'css-loader'
+						loader: 'style-loader'
 					},
 					{
-						loader: 'style-loader'
+						loader: 'css-loader'
 					},
 					{
 						loader: 'less-loader'
@@ -31,13 +31,13 @@ module.exports = {
 				use: 'css-loader'
 			},{
 				test: /\.js$/,
-				use: 'babel-loader',
+				use: ['jsx-loader','babel-loader']
 			},{
 				test: /\.html$/,
 				use: 'html-loader'
 			},{
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use: 'file-loader'
+        		use: 'file-loader'
 			}
 		]
 	},

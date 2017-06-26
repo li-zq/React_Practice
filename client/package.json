@@ -16,7 +16,8 @@
     "express": "^4.15.3",
     "hbs": "^4.0.1",
     "jquery": "^3.2.1",
-    "react": "^15.6.1"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
