@@ -1,15 +1,16 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+//import ReactDom from 'react-dom';
 
-export defalut class Asdsdfsd extends React.component {
+export default class Asdsdfsd extends React.Component {
 	constructor(props) {
 		super(props);
 		
 	}
 	render() {
-		return 
+		return ( 
 		 <div className="fist">
 		 	<span>This is a React app!</span>
 		 </div>
+		)
 	}
 }

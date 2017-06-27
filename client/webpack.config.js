@@ -25,13 +25,25 @@ module.exports = {
 				]
 			},{
 				test: /\.jsx$/,
-				use: ['jsx-loader','babel-loader']
+				use: [
+					{
+						loader: 'jsx-loader'
+					},{
+						loader: 'babel-loader'
+					}
+				]
 			},{
 				test: /\.css$/,
 				use: 'css-loader'
 			},{
 				test: /\.js$/,
-				use: ['jsx-loader','babel-loader']
+				use: [
+					{
+						loader: 'jsx-loader'
+					},{
+						loader: 'babel-loader'
+					}
+				]
 			},{
 				test: /\.html$/,
 				use: 'html-loader'
