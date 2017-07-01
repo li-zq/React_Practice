@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		vendor: 'jquery'   //公共库
+		vendor: ['react','react-dom']   //公共库
 	},
 	//各种loader
 	module: {
@@ -65,8 +65,8 @@ module.exports = {
 		}),
 		//全局挂载插件,即全局变量
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
+      React: "react",
+      ReactDom: "react-dom"
     }),
 	]
 }
