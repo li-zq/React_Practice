@@ -1,4 +1,3 @@
-
 function ListNum(props) {
 	const nums = props.numbers;
 	const a = nums.map(function(index, elem) {
@@ -13,7 +12,8 @@ export default class Asdsdfsd extends React.Component {
 		super(props);
 		this.state = {date: new Date(),num: 0,value: '123'};
 		this.malert = this.malert.bind(this);
-		this.handlInput = this.handlInput.bind(this)
+		this.handlInput = this.handlInput.bind(this);
+		this.refIns = this.refIns.bind(this);
 		console.log(this);
 	}
 	malert(event) {
@@ -24,6 +24,11 @@ export default class Asdsdfsd extends React.Component {
 	}
 	handlInput(e){
 		this.setState({value: e.target.value})
+	}
+	refIns(){
+		console.log(this.te);
+		this.te.focus();
+		this.te.value = "change";
 	}
 	componentDidMount() {
 		this.set1 = setInterval(()=>{
@@ -43,8 +48,10 @@ export default class Asdsdfsd extends React.Component {
 		 	<h5>Time is: {this.state.date.toLocaleTimeString()}</h5>
 		 	<h4>Count: {this.state.num}</h4>
 		 	<button className="btn btn-default" onClick={this.malert}>无所谓</button>
-		 	<input className="form-control" type="text" value={this.state.value} onChange={this.handlInput}/>	
-		 	<ListNum numbers={gnum}/>
+		 	<input className="form-control" ref={(input)=>{this.te = input}} defaultValue='123' />
+		 	<button className="btn btn-default" onClick={this.refIns}>ref</button>
+		 	<input className="form-control" type="text" value={this.state.value} onChange={this.handlInput} />	
+		 	<ListNum numbers={gnum} />
 		 </div>
 		)
 	}
