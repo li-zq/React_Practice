@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		vendor: ['react','react-dom']   //公共库
+		vendor: ['react', 'react-dom', 'react-router-dom']   //公共库
 	},
 	//各种loader
 	module: {
@@ -58,7 +58,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: __dirname+'/app/index.html',
 			inject: 'body',
-			hash: true
+			hash: false
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor'
@@ -66,7 +66,8 @@ module.exports = {
 		//全局挂载插件,即全局变量
     new webpack.ProvidePlugin({
       React: "react",
-      ReactDom: "react-dom"
+      ReactDom: "react-dom",
+      ReactRouter: "react-router-dom"
     }),
 	]
 }
