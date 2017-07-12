@@ -6,8 +6,9 @@ const config  = require('./webpack.config');
 config.output = {
   filename: '[name].bundle.js',
   chunkFilename:'[name].min.js',
+  sourceMapFilename: '[name].bundle.map',
   publicPath: '',
-  path: path.resolve(__dirname, 'client')
+  path: path.resolve(__dirname, 'client/app')
 };
 
 //设置入口文件

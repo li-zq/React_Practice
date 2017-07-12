@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
 	devtool: 'source-map',
 	entry: {
-		vendor: ['react', 'react-dom', 'react-router-dom']   //公共库
+		'react.all': ['react', 'react-dom', 'react-router-dom']   //公共库
 	},
 	//各种loader
 	module: {
@@ -25,11 +25,18 @@ module.exports = {
 				]
 			},{
 				test: /\.jsx$/,
+				exclude: /node_modules/,
 				use: [
 					{
 						loader: 'jsx-loader'
 					},{
-						loader: 'babel-loader'
+						loader: 'babel-loader',
+						options: {
+							cacheDirectory : true,
+							presets: [
+								['es2015', {modules: false}]
+							]
+						}
 					}
 				]
 			},{
@@ -37,6 +44,7 @@ module.exports = {
 				use: 'css-loader'
 			},{
 				test: /\.js$/,
+				exclude: /node_modules/,
 				use: [
 					{
 						loader: 'jsx-loader'
@@ -61,13 +69,14 @@ module.exports = {
 			hash: false
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
-			name: 'vendor'
+			name: 'react.all',
+			minChunks: 2
 		}),
 		//全局挂载插件,即全局变量
     new webpack.ProvidePlugin({
-      React: "react",
-      ReactDom: "react-dom",
-      ReactRouter: "react-router-dom"
+      	React: "react",
+      	ReactDom: "react-dom",
+      	ReactRouter: "react-router-dom"
     }),
 	]
 }

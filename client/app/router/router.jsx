@@ -1,26 +1,36 @@
+import {Login} from "./routerConfig.jsx";
+
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Link = ReactRouter.Link;
-//console.log(BrowserRouter, Route, Link);
-const Home = () => (
+
+
+/*const Home = () => (
   <div>
     <h2>Home</h2>
+    <Bundle load={loadSomething}>
+      {(About) => <About />}
+    </Bundle>
   </div>
 )
-
+const Dashboard = (props) => (
+  <Bundle load={loadSomething}>
+    {(Dashboard) => <Dashboard {...props}/>}
+  </Bundle>
+)
 const About = () => (
   <div>
     <h2>About</h2>
   </div>
-)
+)*/
 
-const Topic = ({ match }) => (
+/*const Topic = ({ match }) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
-)
+)*/
 
-const Topics = ({ match }) => (
+/*const Topics = ({ match }) => (
   <div>
     <h2>Topics</h2>
     <ul>
@@ -40,29 +50,46 @@ const Topics = ({ match }) => (
         </Link>
       </li>
     </ul>
-
+    <Home />
+  
+    <succ />
     <Route path={`${match.url}/:topicId`} component={Topic}/>
     <Route exact path={match.url} render={() => (
       <h3>Please select a topic.</h3>
     )}/>
   </div>
-)
-
-const BasicExample = () => (
-  <Router>
-    <div>
-      <ul>
+)*/
+/* <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/topics">Topics</Link></li>
-      </ul>
+        <li><Link to="/m1">M1</Link></li>
+        <li><Link to="/m11">M11</Link></li>
+        <li><Link to="/m111">M111</Link></li>
+</ul>*/
 
-      <hr/>
-
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/topics" component={Topics}/>
+/*
+const BasicExample = () => (
+  <Router>
+    <div>
+      <Route exact path="/" component={Login}/>
+      
     </div>
   </Router>
 )
-export default BasicExample
+export default BasicExample*/
+
+export default class RouterConfig extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" component={Login}/>
+        </div>
+      </Router>
+    )
+  }
+}
