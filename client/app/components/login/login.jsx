@@ -24,7 +24,7 @@ export default class Login extends React.Component {
 				        <div className="password-input">
 				           <input type="password" name="password"  placeholder="请输入您的密码" required/>
 			            	<span className="passwordClick">
-				            	<span className="checkPasssWord place"></span>
+				            	<span className=""></span>
 				            </span>
 				        </div>
 				        <div>
