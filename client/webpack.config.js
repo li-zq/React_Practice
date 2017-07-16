@@ -24,12 +24,10 @@ module.exports = {
 					}
 				]
 			},{
-				test: /\.jsx$/,
+				test: /\.(jsx|js)$/,
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: 'jsx-loader'
-					},{
 						loader: 'babel-loader',
 						options: {
 							cacheDirectory : true,
@@ -42,16 +40,6 @@ module.exports = {
 			},{
 				test: /\.css$/,
 				use: 'css-loader'
-			},{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'jsx-loader'
-					},{
-						loader: 'babel-loader'
-					}
-				]
 			},{
 				test: /\.html$/,
 				use: 'html-loader'

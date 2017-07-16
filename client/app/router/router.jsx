@@ -3,6 +3,7 @@ import {Login} from "./routerConfig.jsx";
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Link = ReactRouter.Link;
+const Redirect = ReactRouter.Redirect;
 
 
 /*const Home = () => (
@@ -24,13 +25,15 @@ const About = () => (
   </div>
 )*/
 
-/*const Topic = ({ match }) => (
+const Topic = ({ match }) => { 
+console.log({ match })
+  return (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
-)*/
+)}
 
-/*const Topics = ({ match }) => (
+const Topics = ({ match }) => (
   <div>
     <h2>Topics</h2>
     <ul>
@@ -50,15 +53,13 @@ const About = () => (
         </Link>
       </li>
     </ul>
-    <Home />
   
-    <succ />
     <Route path={`${match.url}/:topicId`} component={Topic}/>
     <Route exact path={match.url} render={() => (
       <h3>Please select a topic.</h3>
     )}/>
   </div>
-)*/
+)
 /* <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
@@ -87,7 +88,9 @@ export default class RouterConfig extends React.Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Login}/>
+          <Route exact path="/" render={()=>(<Redirect to="/login" />)}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/m" component={Topics}/>
         </div>
       </Router>
     )

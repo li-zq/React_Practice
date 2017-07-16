@@ -1,41 +1,74 @@
 import "./login.less";
 
-import loginImg from "./image/login.jpg" 
-console.log(loginImg)
 export default class Login extends React.Component {
 	constructor(props){
 		super(props);
+		console.log(props);
+		this.state = {
+			userName: '',
+			password: ''
+		}
+		this.phoneReg = /^1[3|4|5|7|8]\d{9}$/;
+		this.userCheck = true;
+		this.passCheck = true;
 		this.handel = this.handel.bind(this);
+		this.formSubmit = this.formSubmit.bind(this);
+		this.handleUserName = this.handleUserName.bind(this);
+		this.blurCheck = this.blurCheck.bind(this);
+		this.handlePassword = this.handlePassword.bind(this);
 	}
 	handel(){
 		console.log(1);
 	}
+	formSubmit(e){
+		e.preventDefault();
+		console.log(this.state.userName,this.state.password);
+
+	}
+	handleUserName(e){
+		this.setState({userName: e.target.value});
+		if(this.phoneReg.test(e.target.value)){
+			this.userCheck = true;
+		}
+	}
+	handlePassword(e){
+		this.setState({password: e.target.value});
+		if(this.state.password.length < 6){
+			this.passCheck = false;
+		}else {
+			this.passCheck = true;
+		}
+	}
+	blurCheck(e){
+		this.setState({userName: e.target.value});
+		this.userCheck = this.phoneReg.test(e.target.value);
+		console.log(e.target.value)
+	}
 	render(){
 		return (
 			<div className="content">
-				<form name="loginForm" role="form" noValidate>
-				    <div className="boxinput">
-				        <div className="user-input">
-				            <input autoFocus="autofocus" type="text" name="username"  placeholder="手机号" required/>
-				            <span className="user">
-				            	<span className="checkUser place"></span>
-				            </span>
-				        </div>
-				        <div className="password-input">
-				           <input type="password" name="password"  placeholder="请输入您的密码" required/>
-			            	<span className="passwordClick">
-				            	<span className=""></span>
-				            </span>
-				        </div>
-				        <div>
-					        <button type="submit" >
-					        </button>
-					    </div>
-						<div className="rememberPassword">
-					    	<span className="checkbox"></span>
-					      <span><a href="javascript:void(0);">记住账户</a></span>
-					      <span><a href="javascript:void(0);">忘记密码？</a></span>
-					    </div>
+				<form className="form-horizontal col-md-12" style={{verticalAlign: 'middle'}} name="loginForm" role="form" noValidate>
+				    
+				    <div className="form-group">
+				    	<div className="formInput">
+				    		<i className="glyphicon glyphicon-user glyUser"></i>
+				    		<input value={this.state.userName} onBlur={this.blurCheck} onChange={this.handleUserName} type="text" autoFocus="autofocus" className="form-control" placeholder="请输入您的手机号" required/>
+				    		{!this.userCheck && <span className="inputError">用户名必须是手机号码</span>}
+				    	</div>
+				    </div>
+				    <div className="form-group">
+				    	<div className="formInput">
+				    		<i className="glyphicon glyphicon-lock glyUser"></i>
+				    		<input value={this.state.password} onChange={this.handlePassword} type="password" className="form-control" placeholder="请输入您的密码" required/>
+				    		{!this.passCheck && <span className="inputError">密码长度大于等于6位</span>}
+				    	</div>
+				    </div>
+				    <div className="form-group">
+				    	<div className="formInput">
+				    		<button onClick={this.formSubmit} type="submit" className="btn btn-default" disabled={!(this.userCheck&&this.state.userName&&this.state.password&&this.passCheck)}>登录</button>
+				    		<span style={{paddingLeft: '1rem',cursor: 'pointer'}}>注册</span>
+				    		<span style={{paddingLeft: '1rem',cursor: 'pointer'}}>忘记密码？</span>
+				    	</div>
 				    </div>
 				</form>
 			</div>	

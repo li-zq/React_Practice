@@ -1,13 +1,39 @@
 login {
 	.content{
-		background-image: url('./image/login.jpg');
+		background-image: url('./image/login2.jpg');
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 		position: absolute;
 		height: 100%;
 		width: 100%;
-		.backImg{
-			
+		//display: table;
+		form {
+			position: relative;
+			top: 50%;
+			margin-top: -66px;
+			//display: table-cell;
+		}
+		.formInput {
+			position: relative;
+			input {
+				padding-left: 2rem;
+			}
+			width: 15rem;
+			margin: auto;
+			.glyUser {
+				color: #2da6df;
+				display: inline;
+				position: absolute;
+				top: 0.8rem;
+				left: 0.5rem;
+			}
+			.inputError {
+				position: absolute;
+				left: 16rem;
+				width: 12rem;
+				top: 0.5rem;
+				color: red;
+			}
 		}
 	}
 }
