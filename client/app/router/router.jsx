@@ -1,29 +1,10 @@
-import {Login} from "./routerConfig.jsx";
+import {Login, CommonMenu} from "./routerConfig.jsx";
 
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Link = ReactRouter.Link;
 const Redirect = ReactRouter.Redirect;
-
-
-/*const Home = () => (
-  <div>
-    <h2>Home</h2>
-    <Bundle load={loadSomething}>
-      {(About) => <About />}
-    </Bundle>
-  </div>
-)
-const Dashboard = (props) => (
-  <Bundle load={loadSomething}>
-    {(Dashboard) => <Dashboard {...props}/>}
-  </Bundle>
-)
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-)*/
+const withRouter = ReactRouter.withRouter; 
 
 const Topic = ({ match }) => { 
 console.log({ match })
@@ -60,34 +41,21 @@ const Topics = ({ match }) => (
     )}/>
   </div>
 )
-/* <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-        <li><Link to="/m1">M1</Link></li>
-        <li><Link to="/m11">M11</Link></li>
-        <li><Link to="/m111">M111</Link></li>
-</ul>*/
-
-/*
-const BasicExample = () => (
-  <Router>
-    <div>
-      <Route exact path="/" component={Login}/>
-      
-    </div>
-  </Router>
-)
-export default BasicExample*/
 
 export default class RouterConfig extends React.Component {
   constructor(props){
     super(props);
+    this.commonmenu = withRouter(({location})=>{
+      return location.pathname === '/login' ? null : <div><CommonMenu /></div>
+    });
+    
   }
   render(){
+    console.log("<Router> Rendering...");
     return (
       <Router>
         <div>
+          <this.commonmenu />
           <Route exact path="/" render={()=>(<Redirect to="/login" />)}/>
           <Route path="/login" component={Login}/>
           <Route path="/m" component={Topics}/>

@@ -3,7 +3,7 @@ import "./login.less";
 export default class Login extends React.Component {
 	constructor(props){
 		super(props);
-		console.log(props);
+		console.log('login');
 		this.state = {
 			userName: '',
 			password: ''
@@ -22,7 +22,7 @@ export default class Login extends React.Component {
 	}
 	formSubmit(e){
 		e.preventDefault();
-		console.log(this.state.userName,this.state.password);
+		console.log(this.state.userName+' '+this.state.password);
 
 	}
 	handleUserName(e){
@@ -42,7 +42,6 @@ export default class Login extends React.Component {
 	blurCheck(e){
 		this.setState({userName: e.target.value});
 		this.userCheck = this.phoneReg.test(e.target.value);
-		console.log(e.target.value)
 	}
 	render(){
 		return (
