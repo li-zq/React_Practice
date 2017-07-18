@@ -1,4 +1,4 @@
-import {Login, CommonMenu} from "./routerConfig.jsx";
+import {Login, CommonMenu, ProjectManage} from "./routerConfig.jsx";
 
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
@@ -50,15 +50,22 @@ export default class RouterConfig extends React.Component {
     });
     
   }
+  rerender(value){
+    this.setState({})
+    return value;
+  }
   render(){
     console.log("<Router> Rendering...");
     return (
       <Router>
         <div>
-          <this.commonmenu />
-          <Route exact path="/" render={()=>(<Redirect to="/login" />)}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/m" component={Topics}/>
+            <this.commonmenu />
+            <div className='conter'>
+              <Route exact path="/" render={()=>(<Redirect to="/login" />)}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/projectManage" component={ProjectManage}/>
+              <Route path="/m" component={Topics}/>
+            </div>
         </div>
       </Router>
     )
