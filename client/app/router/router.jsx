@@ -1,4 +1,4 @@
-import {Login, CommonMenu, ProjectManage} from "./routerConfig.jsx";
+import {Login, CommonMenu, ProjectManage, AppManage, SysManage} from "./routerConfig.jsx";
 
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
@@ -64,6 +64,8 @@ export default class RouterConfig extends React.Component {
               <Route exact path="/" render={()=>(<Redirect to="/login" />)}/>
               <Route path="/login" component={Login}/>
               <Route path="/projectManage" component={ProjectManage}/>
+              <Route path="/appManage" component={AppManage}/>
+              <Route path="/sysManage" component={SysManage}/>
               <Route path="/m" component={Topics}/>
             </div>
         </div>
