@@ -5,6 +5,7 @@ import _Login from "bundle-loader?lazy&name=login!../components/login/login.jsx"
 import _ProjectManage from "bundle-loader?lazy&name=projectManage!../components/projectManage/projectManage.jsx";
 import _AppManage from "bundle-loader?lazy&name=appManage!../components/appManage/appManage.jsx";
 import _SysManage from "bundle-loader?lazy&name=sysManage!../components/sysManage/sysManage.jsx";
+import _ShowPlugin from "bundle-loader?lazy&name=showPlugin!../components/showPlugin/showPlugin.jsx";
 
 
 export class Login extends React.Component {
@@ -63,6 +64,18 @@ export class SysManage extends React.Component {
 		return (
 			<Bundle load={_SysManage}>
 				{(Components)=> <app_manage><Components {...this.props}/></app_manage>}
+			</Bundle>
+		)
+	}
+}
+export class ShowPlugin extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<Bundle load={_ShowPlugin}>
+				{(Components)=> <show_plugin><Components {...this.props}/></show_plugin>}
 			</Bundle>
 		)
 	}

@@ -53,6 +53,14 @@ export default class CommonMenu extends React.Component {
 							
 							</div>
 						</div>
+						<div className="siderMenu">
+							<Link to="/showPlugin" replace>
+								<span><i className="glyphicon glyphicon-list-alt"></i> 插件展示</span>
+							</Link>
+							<div className="siderSubMenu">
+							
+							</div>
+						</div>
 					</div>
 					<div className="headerBar">
 						<span style={this.spanStyle}>XX管理平台</span>

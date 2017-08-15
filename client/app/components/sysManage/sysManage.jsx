@@ -8,7 +8,7 @@ export default class SysManage extends React.Component{
 		return (
 			<div className='page'>
 				<h1 style={{textAlign:"center",position: "relative",top: "50%",marginTop:'-20px'}}>
-    				还没做，竟然被你发现了。。。
+    				Nothing
     			</h1>
 			</div>
 		)
