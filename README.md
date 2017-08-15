@@ -3,7 +3,7 @@
 
 react+reactRouter+gulp+webpack+less+ES6
 
-##运行:
+## 运行:
 
 在client目录下运行gulp
 
