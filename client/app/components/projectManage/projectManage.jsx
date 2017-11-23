@@ -37,7 +37,7 @@ export default class ProjectManage extends React.Component{
 				otherName: 'x3',
 				creator: 'li-zq',
 				creatTime: '2017-04-20',
-				desc: 'Just some practice'
+				desc: 'Just'
 			}
 		]
 		this.Tr = this.list.map((item, index)=>
